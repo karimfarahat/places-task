@@ -1,0 +1,120 @@
+$main-primary: #fff;
+$main-secondary: #f3f3f3;
+$main-title: #17a6b6;
+$main-text: #686868;
+$main-text-muted: #969696;
+
+$footer-primary: #17a6b6;
+$footer-secondary: #ececec;
+$footer-title: #fff;
+$footer-text: #fff;
+$footer-text-muted: #686868;
+
+@mixin themable(
+  $theme-name,
+  $primary-bg,
+  $text,
+  $item-bg,
+  $muted-text,
+  $title-color
+) {
+  .#{$theme-name} {
+    background-color: $primary-bg;
+    color: $text;
+    font-size: 16px;
+    font-family: "Lato";
+    font-weight: 400;
+
+    .page-title {
+      color: $title-color;
+      font-size: 70px;
+      font-weight: 300;
+    }
+
+    .item {
+      background-color: $item-bg;
+      color: $text;
+
+      .item-title {
+        font-size: 20px;
+        text-transform: uppercase;
+        color: $title-color;
+        font-weight: 700;
+      }
+      .item-footer {
+        color: $muted-text;
+        font-size: 14px;
+      }
+    }
+    .footer-title {
+      font-size: 25px;
+      text-transform: uppercase;
+      color: $title-color;
+      font-weight: 400;
+    }
+    .footer-item {
+      background-color: $item-bg;
+      color: $footer-primary;
+      border-radius: 0;
+
+      &.form-control {
+        background-color: $text;
+      }
+      &.button {
+        padding: 10px;
+        max-width: fit-content;
+      }
+      &.connect-logo {
+        width: 50px;
+        height: 50px;
+      }
+    }
+    .contact-wrapper {
+      font-size: 14px;
+      font-weight: 300;
+    }
+    .connect-wrapper {
+      font-size: 14px;
+      font-weight: 300;
+    }
+    .about-wrapper {
+      font-size: 14px;
+      font-weight: 300;
+      .about-header {
+        font-size: 16px;
+      }
+    }
+    .about-img {
+      position: relative;
+      .about-img-pos {
+        @media screen and (min-width: 768px) {
+          position: absolute;
+          width: 200px;
+          height: 200px;
+          top: 50px;
+          right: 0px;
+        }
+      }
+    }
+  }
+  .modal-content {
+    border-radius: 0;
+  }
+}
+
+@include themable(
+  theme-main,
+  $main-primary,
+  $main-text,
+  $main-secondary,
+  $main-text-muted,
+  $main-title
+);
+@include themable(
+  theme-footer,
+  $footer-primary,
+  $footer-text,
+  $footer-secondary,
+  $footer-text-muted,
+  $footer-title
+);
